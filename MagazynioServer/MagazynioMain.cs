@@ -17,19 +17,18 @@ namespace MagazynioServer
 
         private void MagazynioMain_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void MagazynioMain_Load_1(object sender, EventArgs e)
-        {
             // TODO: This line of code loads data into the 'magazynioDataSet.ProductsSaledProducedAvailable' table. You can move, or remove it, as needed.
-            this.productsSaledProducedAvailableTableAdapter.Fill(this.magazynioDataSet.ProductsSaledProducedAvailable);
-
+            this.ProductListRefresh_Action();
+        }
+        
+        private void ProductListRefresh_Click(object sender, EventArgs e)
+        {
+            this.ProductListRefresh_Action();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ProductListRefresh_Action()
         {
-
+            this.productsSaledProducedAvailableTableAdapter.Fill(this.magazynioDataSet.ProductsSaledProducedAvailable);
         }
     }
 }

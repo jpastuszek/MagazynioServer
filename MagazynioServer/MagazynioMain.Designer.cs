@@ -30,20 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.magazynioDataSet = new MagazynioServer.MagazynioDataSet();
-            this.productsSaledProducedAvailableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productsSaledProducedAvailableTableAdapter = new MagazynioServer.MagazynioDataSetTableAdapters.ProductsSaledProducedAvailableTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qProducedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qSaledDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qAvailableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.productsSaledProducedAvailableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.magazynioDataSet = new MagazynioServer.MagazynioDataSet();
+            this.productsSaledProducedAvailableTableAdapter = new MagazynioServer.MagazynioDataSetTableAdapters.ProductsSaledProducedAvailableTableAdapter();
+            this.MagazynioTabs = new System.Windows.Forms.TabControl();
+            this.ProductListTab = new System.Windows.Forms.TabPage();
+            this.ProductManagmentTab = new System.Windows.Forms.TabPage();
+            this.ProductListRefresh = new System.Windows.Forms.Button();
+            this.ProductionTab = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magazynioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsSaledProducedAvailableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magazynioDataSet)).BeginInit();
+            this.MagazynioTabs.SuspendLayout();
+            this.ProductListTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -57,29 +61,13 @@
             this.nameDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
-            this.qProducedDataGridViewTextBoxColumn,
-            this.qSaledDataGridViewTextBoxColumn,
             this.qAvailableDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.productsSaledProducedAvailableBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 277);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 38);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(745, 105);
+            this.dataGridView1.Size = new System.Drawing.Size(543, 316);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // magazynioDataSet
-            // 
-            this.magazynioDataSet.DataSetName = "MagazynioDataSet";
-            this.magazynioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productsSaledProducedAvailableBindingSource
-            // 
-            this.productsSaledProducedAvailableBindingSource.DataMember = "ProductsSaledProducedAvailable";
-            this.productsSaledProducedAvailableBindingSource.DataSource = this.magazynioDataSet;
-            // 
-            // productsSaledProducedAvailableTableAdapter
-            // 
-            this.productsSaledProducedAvailableTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -109,20 +97,6 @@
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // qProducedDataGridViewTextBoxColumn
-            // 
-            this.qProducedDataGridViewTextBoxColumn.DataPropertyName = "QProduced";
-            this.qProducedDataGridViewTextBoxColumn.HeaderText = "QProduced";
-            this.qProducedDataGridViewTextBoxColumn.Name = "qProducedDataGridViewTextBoxColumn";
-            this.qProducedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qSaledDataGridViewTextBoxColumn
-            // 
-            this.qSaledDataGridViewTextBoxColumn.DataPropertyName = "QSaled";
-            this.qSaledDataGridViewTextBoxColumn.HeaderText = "QSaled";
-            this.qSaledDataGridViewTextBoxColumn.Name = "qSaledDataGridViewTextBoxColumn";
-            this.qSaledDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // qAvailableDataGridViewTextBoxColumn
             // 
             this.qAvailableDataGridViewTextBoxColumn.DataPropertyName = "QAvailable";
@@ -130,28 +104,87 @@
             this.qAvailableDataGridViewTextBoxColumn.Name = "qAvailableDataGridViewTextBoxColumn";
             this.qAvailableDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label1
+            // productsSaledProducedAvailableBindingSource
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 258);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Lista produktów";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.productsSaledProducedAvailableBindingSource.DataMember = "ProductsSaledProducedAvailable";
+            this.productsSaledProducedAvailableBindingSource.DataSource = this.magazynioDataSet;
+            // 
+            // magazynioDataSet
+            // 
+            this.magazynioDataSet.DataSetName = "MagazynioDataSet";
+            this.magazynioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsSaledProducedAvailableTableAdapter
+            // 
+            this.productsSaledProducedAvailableTableAdapter.ClearBeforeFill = true;
+            // 
+            // MagazynioTabs
+            // 
+            this.MagazynioTabs.Controls.Add(this.ProductListTab);
+            this.MagazynioTabs.Controls.Add(this.ProductManagmentTab);
+            this.MagazynioTabs.Controls.Add(this.ProductionTab);
+            this.MagazynioTabs.Location = new System.Drawing.Point(12, 12);
+            this.MagazynioTabs.Name = "MagazynioTabs";
+            this.MagazynioTabs.SelectedIndex = 0;
+            this.MagazynioTabs.Size = new System.Drawing.Size(566, 387);
+            this.MagazynioTabs.TabIndex = 4;
+            // 
+            // ProductListTab
+            // 
+            this.ProductListTab.Controls.Add(this.dataGridView1);
+            this.ProductListTab.Controls.Add(this.ProductListRefresh);
+            this.ProductListTab.Location = new System.Drawing.Point(4, 22);
+            this.ProductListTab.Name = "ProductListTab";
+            this.ProductListTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ProductListTab.Size = new System.Drawing.Size(558, 361);
+            this.ProductListTab.TabIndex = 0;
+            this.ProductListTab.Text = "Lista produktów";
+            this.ProductListTab.UseVisualStyleBackColor = true;
+            // 
+            // ProductManagmentTab
+            // 
+            this.ProductManagmentTab.Location = new System.Drawing.Point(4, 22);
+            this.ProductManagmentTab.Name = "ProductManagmentTab";
+            this.ProductManagmentTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ProductManagmentTab.Size = new System.Drawing.Size(558, 361);
+            this.ProductManagmentTab.TabIndex = 1;
+            this.ProductManagmentTab.Text = "Zarządzanie produktami";
+            this.ProductManagmentTab.UseVisualStyleBackColor = true;
+            // 
+            // ProductListRefresh
+            // 
+            this.ProductListRefresh.Image = global::MagazynioServer.Properties.Resources._1358455773_arrow_circle_double;
+            this.ProductListRefresh.Location = new System.Drawing.Point(521, 7);
+            this.ProductListRefresh.Name = "ProductListRefresh";
+            this.ProductListRefresh.Size = new System.Drawing.Size(28, 25);
+            this.ProductListRefresh.TabIndex = 3;
+            this.ProductListRefresh.UseCompatibleTextRendering = true;
+            this.ProductListRefresh.UseVisualStyleBackColor = true;
+            this.ProductListRefresh.Click += new System.EventHandler(this.ProductListRefresh_Click);
+            // 
+            // ProductionTab
+            // 
+            this.ProductionTab.Location = new System.Drawing.Point(4, 22);
+            this.ProductionTab.Name = "ProductionTab";
+            this.ProductionTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ProductionTab.Size = new System.Drawing.Size(558, 361);
+            this.ProductionTab.TabIndex = 2;
+            this.ProductionTab.Text = "Produkcja";
+            this.ProductionTab.UseVisualStyleBackColor = true;
             // 
             // MagazynioMain
             // 
-            this.ClientSize = new System.Drawing.Size(994, 394);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(590, 412);
+            this.Controls.Add(this.MagazynioTabs);
             this.Name = "MagazynioMain";
-            this.Load += new System.EventHandler(this.MagazynioMain_Load_1);
+            this.Text = "Magazynio - Aplikacja dziwna, acz serwerowa (:";
+            this.Load += new System.EventHandler(this.MagazynioMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magazynioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsSaledProducedAvailableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magazynioDataSet)).EndInit();
+            this.MagazynioTabs.ResumeLayout(false);
+            this.ProductListTab.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -165,10 +198,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qProducedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qSaledDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qAvailableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ProductListRefresh;
+        private System.Windows.Forms.TabControl MagazynioTabs;
+        private System.Windows.Forms.TabPage ProductListTab;
+        private System.Windows.Forms.TabPage ProductManagmentTab;
+        private System.Windows.Forms.TabPage ProductionTab;
 
 
     }
